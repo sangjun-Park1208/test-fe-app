@@ -7,7 +7,11 @@ function App() {
   const [hasVal, setHasVal] = useState<boolean>(false);
 
   const onClickBtn = () => {
-    axios.get(`${baseURL}/getUser?userId=1`)
+    const axiosInstance = axios.create({
+      baseURL: baseURL,
+      withCredentials: true,
+    })
+    axiosInstance.get(`/getUser?userId=1`)
       .then((res) => {
         console.log({res});
         setHasVal(true);
