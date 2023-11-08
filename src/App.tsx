@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const baseURL: string = "http://ceprj.gachon.ac.kr:60006";
+  const baseURL: string = "http://localhost:60006";
   const [hasVal, setHasVal] = useState<boolean>(false);
 
   const onClickBtn = () => {
@@ -11,7 +11,7 @@ function App() {
       baseURL: baseURL,
       withCredentials: true,
     })
-    axiosInstance.get(`/getUser?userId=1`)
+    axiosInstance.get(`/admin/form`)
       .then((res) => {
         console.log({res});
         setHasVal(true);
